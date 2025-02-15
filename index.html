@@ -31,6 +31,12 @@
             border-radius: 10px;
             margin-bottom: 20px;
         }
+        /* Imagen más pequeña */
+        .small-image {
+            width: 50%;  /* Cambié el ancho a 50% del contenedor */
+            height: auto;
+            margin-top: 10px; /* Para dar un poco de espacio entre las imágenes */
+        }
         .message {
             margin-top: 20px;
             font-size: 18px;
@@ -67,7 +73,9 @@
 <body>
     <div class="container">
         <h1>💖 ¡Feliz San Valentín! 💖</h1>
-        <img src="https://i.pinimg.com/736x/70/88/6d/70886d27e976c5f8fbae86de599f8403.jpg" alt="Imagen romántica">
+        
+        <!-- Imagen pequeña -->
+        <img class="small-image" src="https://i.pinimg.com/736x/70/88/6d/70886d27e976c5f8fbae86de599f8403.jpg" alt="Imagen romántica">
         
         <div id="messageDisplay" class="message">
             Se que ayer no te di el mejor regalo de tu vida pero si te di algo que comer jejejeje, asi que te hice esto que espero y lo valores tambien es una forma de practicar para mi y tambien para que tu lo disfrutes, muchas gracias por ser atenta conmigo y darme regalitos bonitos de verdad lo aprecio y me encantaron pero unas pringles moradas eran mas que suficiente, gracias por hacerme feliz en este poquito tiempo que llevamo viendonos eres lo mejor que eh tenido estos días te amo demasiado y espero guardes esto jsjsjs chaoo. (Ya no me van a humillar &#x1F63C;) 💌 ¡Eres la persona más especial en mi vida! 💌
@@ -75,29 +83,31 @@
     </div>
 
     <script>
-        function createHeart() {
+              function createHeart() {
             const heart = document.createElement("div");
             heart.classList.add("heart");
 
-            // Usamos una imagen de corazón flotante en lugar de un carácter
-            const img = document.createElement("img");
-            img.src = "https://i.pinimg.com/736x/63/25/10/632510e53b3ae17f36993d7993c9fe8f.jpg"; // URL de la imagen de corazón
-            img.alt = "Corazón flotante";
-            img.style.width = "30px"; // Ajusta el tamaño de la imagen de corazón
-            heart.appendChild(img);
-
+            heart.innerHTML = "❤️";
+            
             document.body.appendChild(heart);
 
             const left = Math.random() * 100;
             heart.style.left = left + "vw";
-            heart.style.top = "0"; // Empieza desde la parte superior de la pantalla
+            heart.style.top = "0"; 
             
             setTimeout(() => {
                 heart.remove();
-            }, 4000);
+            }, 30000); // Los corazones desaparecen después de 30 segundos
         }
 
+        // Desplazamiento automático hacia abajo
+        function scrollDown() {
+            window.scrollBy(0, 2);  // Baja un poco la página
+        }
+
+        setInterval(scrollDown, 10);  // Cada 10ms baja un poco la página
         setInterval(createHeart, 300); // Crear corazones flotantes cada 300ms
+
     </script>
 </body>
 </html>
