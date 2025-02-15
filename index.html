@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>San Valentín</title>
+    <title>Feliz San Valentin Atrasado :3</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,22 +19,10 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
-        textarea {
-            width: 100%;
-            height: 100px;
-            margin-top: 10px;
-            padding: 10px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        button {
-            margin-top: 10px;
-            background-color: #d32f2f;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
+        img {
+            max-width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
         .message {
             margin-top: 20px;
@@ -46,17 +34,8 @@
 <body>
     <div class="container">
         <h1>💖 ¡Feliz San Valentín! 💖</h1>
-        <p>Envía un mensaje especial a tu persona favorita:</p>
-        <textarea id="messageInput" placeholder="Escribe tu mensaje aquí..."></textarea>
-        <button onclick="showMessage()">Enviar Mensaje</button>
-        <div id="messageDisplay" class="message"></div>
+        <img src="https://example.com/san-valentin.jpg" alt="Imagen romántica">
+        <div id="messageDisplay" class="message">Se que ayer no te di el mejor egalo e tu vida pero si te di algo que comer jejejeje, asi que te hice esto que espero y lo valores tambien es una forma de practicar para mi y tambien para que tu lo disfrutes, muchas gracias por ser atenta conmigo y darme regalitos bonitos de verdad lo aprecio y me encantaron pero unas pringles moradas eran mas que suficiente, gracias por hacerme feliz en este poquito tiempo que llevamo viendonos eres lo mejor que eh tenido estos días te amo demasiado y espero guardes esto jsjsjs chaoo. (Ya no me van a humillar &#x1F63C; 💌 ¡Eres la persona más especial en mi vida! 💌</div>
     </div>
-
-    <script>
-        function showMessage() {
-            const message = document.getElementById("messageInput").value || "¡Te quiero mucho!";
-            document.getElementById("messageDisplay").innerText = `💌 ${message} 💌`;
-        }
-    </script>
 </body>
 </html>
