@@ -37,77 +37,17 @@
             height: auto;
             margin-top: 10px; /* Para dar un poco de espacio entre las imágenes */
         }
+
+        /* Contenedor para poner las imágenes al lado */
+        .image-container {
+            display: flex;
+            justify-content: space-evenly; /* Las imágenes se distribuyen con espacio entre ellas */
+            margin-top: 20px;
+        }
+
         .message {
             margin-top: 20px;
             font-size: 18px;
             font-weight: bold;
-            background: #ffebee;
-            padding: 15px;
-            border-radius: 10px;
-            border: 2px solid #d32f2f;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-            display: inline-block;
-            text-align: left;
-        }
-        .heart {
-            position: absolute;
-            animation: fall 4s linear infinite;
-            opacity: 0.8;
-        }
-        @keyframes fall {
-            0% {
-                transform: translateY(0) scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: translateY(50vh) scale(1.2);
-                opacity: 0.8;
-            }
-            100% {
-                transform: translateY(100vh) scale(0.8);
-                opacity: 0;
-            }
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>💖 ¡Feliz San Valentín! 💖</h1>
-        
-        <!-- Imagen pequeña -->
-        <img class="small-image" src="https://i.pinimg.com/736x/70/88/6d/70886d27e976c5f8fbae86de599f8403.jpg" alt="Imagen romántica">
-        
-        <div id="messageDisplay" class="message">
-            Se que ayer no te di el mejor regalo de tu vida pero si te di algo que comer jejejeje, asi que te hice esto que espero y lo valores tambien es una forma de practicar para mi y tambien para que tu lo disfrutes, muchas gracias por ser atenta conmigo y darme regalitos bonitos de verdad lo aprecio y me encantaron pero unas pringles moradas eran mas que suficiente, gracias por hacerme feliz en este poquito tiempo que llevamos viendonos eres lo mejor que eh tenido estos días te amo demasiado y espero guardes esto jsjsjs chaoo. (Ya no me van a humillar &#x1F63C;) 💌 ¡Eres la persona más especial en mi vida! 💌
-             <a href="https://open.spotify.com/intl-es/track/2gxqozTaq2NYylvS8jd57G?si=3a9509141acf492f" class="spotify-link" target="_blank">
-       Para ti ❤️
-    </a> 
-        <img class="small-image" src="https://i.pinimg.com/736x/a1/ce/7e/a1ce7e6a179cae8b5dbdc2b79e6a259d.jpg" alt="Imagen romántica">         <img class="small-image" src="https://i.pinimg.com/736x/58/23/64/582364fd2bc9cd3aca2fe12d5331cd21.jpg" alt="Imagen romántica">
+            backgr
 
-
-        </div>
-    </div>
-
-    <script>
-        function createHeart() {
-            const heart = document.createElement("div");
-            heart.classList.add("heart");
-
-            heart.innerHTML = "❤️";
-            
-            document.body.appendChild(heart);
-
-            const left = Math.random() * 100;
-            heart.style.left = left + "vw";
-            heart.style.top = "0"; 
-            
-            setTimeout(() => {
-                heart.remove();
-            }, 30000); // Los corazones desaparecen después de 30 segundos
-        }
-
-        setInterval(createHeart, 300); // Crear corazones flotantes cada 300ms
-
-    </script>
-</body>
-</html>
