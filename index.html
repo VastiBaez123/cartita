@@ -15,7 +15,9 @@
             color: #d32f2f;
             height: 200vh; /* Hacemos que la página sea más alta para permitir desplazamiento */
             overflow-y: auto; /* Permitimos el desplazamiento hacia abajo */
+            position: relative; /* Aseguramos que el movimiento de Snoopy esté dentro de la pantalla */
         }
+
         .container {
             max-width: 600px;
             margin: 50px auto;
@@ -26,17 +28,19 @@
             position: relative;
             z-index: 10;
         }
+
         img {
             max-width: 80%;
             border-radius: 10px;
             margin-bottom: 20px;
         }
-        /* Imagen más pequeña */
+
         .small-image {
-            width: 50%;  /* Cambié el ancho a 50% del contenedor */
+            width: 50%;  
             height: auto;
-            margin-top: 10px; /* Para dar un poco de espacio entre las imágenes */
+            margin-top: 10px;
         }
+
         .message {
             margin-top: 20px;
             font-size: 18px;
@@ -49,11 +53,23 @@
             display: inline-block;
             text-align: left;
         }
+
+        /* Estilo para el monito de Snoopy que se moverá */
+        .snoopy {
+            position: absolute;
+            top: 20px; /* Inicia en la parte superior */
+            left: 20px; /* Inicia en la parte izquierda */
+            width: 100px; /* Tamaño de la imagen de Snoopy */
+            transition: all 0.5s ease-in-out; /* Animación suave */
+            z-index: 20;
+        }
+
         .heart {
             position: absolute;
             animation: fall 4s linear infinite;
             opacity: 0.8;
         }
+
         @keyframes fall {
             0% {
                 transform: translateY(0) scale(1);
@@ -68,13 +84,13 @@
                 opacity: 0;
             }
         }
+
     </style>
 </head>
 <body>
     <div class="container">
         <h1>💖 ¡Feliz San Valentín! 💖</h1>
-        
-        <!-- Imagen pequeña -->
+
         <img class="small-image" src="https://i.pinimg.com/736x/70/88/6d/70886d27e976c5f8fbae86de599f8403.jpg" alt="Imagen romántica">
         
         <div id="messageDisplay" class="message">
@@ -83,6 +99,30 @@
     </div>
 
     <script>
+        // Función para mover a Snoopy aleatoriamente
+        function moveSnoopy() {
+            const snoopy = document.querySelector('.snoopy');
+            
+            // Generar posiciones aleatorias dentro del tamaño de la ventana
+            const randomX = Math.random() * window.innerWidth;
+            const randomY = Math.random() * window.innerHeight;
+
+            // Mover a Snoopy con un cambio de posición suave
+            snoopy.style.left = `${randomX}px`;
+            snoopy.style.top = `${randomY}px`;
+        }
+
+        // Llamar a la función cada 2 segundos para mover a Snoopy
+        setInterval(moveSnoopy, 2000);
+
+        // Crear el monito de Snoopy y añadirlo al body
+        const snoopyImage = document.createElement('img');
+        snoopyImage.src = "https://i.pinimg.com/736x/3a/bb/2f/3abb2fde45d7af84c2f5c67dff020e0e.jpg"; // Cambia la ruta de la imagen de Snoopy
+        snoopyImage.alt = "Snoopy";
+        snoopyImage.classList.add('snoopy');
+        document.body.appendChild(snoopyImage);
+
+        // Crear corazones flotantes
         function createHeart() {
             const heart = document.createElement("div");
             heart.classList.add("heart");
@@ -105,3 +145,4 @@
     </script>
 </body>
 </html>
+
