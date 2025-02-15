@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feliz San Valentín Atrasado :3</title>
+    <title>Snoopy Caminando</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,136 +13,83 @@
             background-position: center;
             text-align: center;
             color: #d32f2f;
-            height: 200vh; /* Hacemos que la página sea más alta para permitir desplazamiento */
-            overflow-y: auto; /* Permitimos el desplazamiento hacia abajo */
-            position: relative; /* Aseguramos que el movimiento de Snoopy esté dentro de la pantalla */
+            height: 200vh;
+            overflow: hidden;
         }
 
-        .container {
-            max-width: 600px;
-            margin: 50px auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            position: relative;
-            z-index: 10;
-        }
-
-        img {
-            max-width: 80%;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        .small-image {
-            width: 50%;  
-            height: auto;
-            margin-top: 10px;
-        }
-
-        .message {
-            margin-top: 20px;
-            font-size: 18px;
-            font-weight: bold;
-            background: #ffebee;
-            padding: 15px;
-            border-radius: 10px;
-            border: 2px solid #d32f2f;
-            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-            display: inline-block;
-            text-align: left;
-        }
-
-        /* Estilo para el monito de Snoopy que se moverá */
         .snoopy {
             position: absolute;
-            top: 20px; /* Inicia en la parte superior */
-            left: 20px; /* Inicia en la parte izquierda */
-            width: 100px; /* Tamaño de la imagen de Snoopy */
-            transition: all 0.5s ease-in-out; /* Animación suave */
-            z-index: 20;
+            bottom: 50px;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            border-radius: 50%;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            animation: walk 3s linear infinite;
         }
 
-        .heart {
+        .snoopy:before {
+            content: '';
             position: absolute;
-            animation: fall 4s linear infinite;
-            opacity: 0.8;
+            top: 15px;
+            left: 10px;
+            width: 20px;
+            height: 20px;
+            background-color: #000;
+            border-radius: 50%;
         }
 
-        @keyframes fall {
+        .snoopy .ears {
+            position: absolute;
+            top: -10px;
+            left: 5px;
+            width: 10px;
+            height: 25px;
+            background-color: #000;
+            border-radius: 50%;
+        }
+
+        .snoopy .ears.right {
+            right: 5px;
+            left: auto;
+        }
+
+        .snoopy .body {
+            position: absolute;
+            top: 30px;
+            left: 10px;
+            width: 70px;
+            height: 50px;
+            background-color: #ffffff;
+            border-radius: 50%;
+        }
+
+        @keyframes walk {
             0% {
-                transform: translateY(0) scale(1);
-                opacity: 1;
-            }
-            50% {
-                transform: translateY(50vh) scale(1.2);
-                opacity: 0.8;
+                left: 0;
             }
             100% {
-                transform: translateY(100vh) scale(0.8);
-                opacity: 0;
+                left: 100vw;
             }
         }
-
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>💖 ¡Feliz San Valentín! 💖</h1>
-
-        <img class="small-image" src="https://i.pinimg.com/736x/70/88/6d/70886d27e976c5f8fbae86de599f8403.jpg" alt="Imagen romántica">
-        
-        <div id="messageDisplay" class="message">
-            Se que ayer no te di el mejor regalo de tu vida pero si te di algo que comer jejejeje, asi que te hice esto que espero y lo valores tambien es una forma de practicar para mi y tambien para que tu lo disfrutes, muchas gracias por ser atenta conmigo y darme regalitos bonitos de verdad lo aprecio y me encantaron pero unas pringles moradas eran mas que suficiente, gracias por hacerme feliz en este poquito tiempo que llevamo viendonos eres lo mejor que eh tenido estos días te amo demasiado y espero guardes esto jsjsjs chaoo. (Ya no me van a humillar &#x1F63C;) 💌 ¡Eres la persona más especial en mi vida! 💌
-        </div>
+    <div class="snoopy">
+        <div class="ears"></div>
+        <div class="ears right"></div>
+        <div class="body"></div>
     </div>
 
     <script>
-        // Función para mover a Snoopy aleatoriamente
-        function moveSnoopy() {
-            const snoopy = document.querySelector('.snoopy');
-            
-            // Generar posiciones aleatorias dentro del tamaño de la ventana
-            const randomX = Math.random() * window.innerWidth;
-            const randomY = Math.random() * window.innerHeight;
-
-            // Mover a Snoopy con un cambio de posición suave
-            snoopy.style.left = `${randomX}px`;
-            snoopy.style.top = `${randomY}px`;
-        }
-
-        // Llamar a la función cada 2 segundos para mover a Snoopy
-        setInterval(moveSnoopy, 2000);
-
-        // Crear el monito de Snoopy y añadirlo al body
-        const snoopyImage = document.createElement('img');
-        snoopyImage.src = "https://i.pinimg.com/736x/3a/bb/2f/3abb2fde45d7af84c2f5c67dff020e0e.jpg"; // Cambia la ruta de la imagen de Snoopy
-        snoopyImage.alt = "Snoopy";
-        snoopyImage.classList.add('snoopy');
-        document.body.appendChild(snoopyImage);
-
-        // Crear corazones flotantes
-        function createHeart() {
-            const heart = document.createElement("div");
-            heart.classList.add("heart");
-
-            heart.innerHTML = "❤️";
-            
-            document.body.appendChild(heart);
-
-            const left = Math.random() * 100;
-            heart.style.left = left + "vw";
-            heart.style.top = "0"; 
-            
-            setTimeout(() => {
-                heart.remove();
-            }, 30000); // Los corazones desaparecen después de 30 segundos
-        }
-
-        setInterval(createHeart, 300); // Crear corazones flotantes cada 300ms
-
+        // Opcionalmente, puedes hacer que se reinicie el ciclo de movimiento después de que Snoopy haya llegado al final de la pantalla
+        const snoopy = document.querySelector('.snoopy');
+        snoopy.addEventListener('animationiteration', function () {
+            snoopy.style.animation = 'none';
+            snoopy.offsetHeight; // Esto reinicia la animación
+            snoopy.style.animation = 'walk 3s linear infinite'; // Vuelve a activar la animación
+        });
     </script>
 </body>
 </html>
-
