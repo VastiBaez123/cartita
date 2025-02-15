@@ -83,7 +83,7 @@
     </div>
 
     <script>
-              function createHeart() {
+        function createHeart() {
             const heart = document.createElement("div");
             heart.classList.add("heart");
 
@@ -100,12 +100,6 @@
             }, 30000); // Los corazones desaparecen después de 30 segundos
         }
 
-        // Desplazamiento automático hacia abajo
-        function scrollDown() {
-            window.scrollBy(0, 2);  // Baja un poco la página
-        }
-
-        setInterval(scrollDown, 10);  // Cada 10ms baja un poco la página
         setInterval(createHeart, 300); // Crear corazones flotantes cada 300ms
 
     </script>
